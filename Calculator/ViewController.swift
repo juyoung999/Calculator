@@ -36,16 +36,19 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         overrideUserInterfaceStyle = .dark
         presentNumber = 0
+        btnZero.tag = 0
     }
     
     @IBAction func touchNumberButton(_ sender: UIButton){
-        if (lblNumber.text!.count) != 11{
+        if presentNumber >= 0{
             presentNumber = presentNumber * 10 + Int((sender.titleLabel?.text)!)!
-            lblNumber.text! = numberFormatter(number: presentNumber)
+        }else{
+            presentNumber = presentNumber * 10 - Int((sender.titleLabel?.text)!)!
         }
+        lblNumber.text! = convertToDecimal(number: presentNumber)
     }
     
-    func numberFormatter(number: Int) -> String{
+    func convertToDecimal(number: Int) -> String{
         let numberFormat = NumberFormatter()
         numberFormat.numberStyle = .decimal
         
@@ -55,6 +58,11 @@ class ViewController: UIViewController {
     @IBAction func touchCancelButton(_ sender: UIButton){
         lblNumber.text = "0"
         presentNumber = 0
+    }
+    
+    @IBAction func touchPlmaButton(_ sender: UIButton){
+        presentNumber = -presentNumber
+        lblNumber.text! = convertToDecimal(number: presentNumber)
     }
 
     @IBAction func calculate(_ sender: UIButton){
@@ -68,7 +76,7 @@ class ViewController: UIViewController {
     
     @IBAction func operate(_ sender: UIButton){
         if let num = temporaryValue{
-            lblNumber.text! = numberFormatter(number: (num + presentNumber))
+            lblNumber.text! = convertToDecimal(number: (num + presentNumber))
         }
 
         
