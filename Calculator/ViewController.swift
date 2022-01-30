@@ -10,6 +10,7 @@ import UIKit
 class ViewController: UIViewController {
 
     var presentNumber: Int!
+    var temporaryValue: Int?
     @IBOutlet var btnZero: UIButton!
     @IBOutlet var btnOne: UIButton!
     @IBOutlet var btnTwo: UIButton!
@@ -61,6 +62,15 @@ class ViewController: UIViewController {
     }
 
     @IBAction func plusOperation(_ sender: UIButton){
+        temporaryValue = presentNumber
+        presentNumber = 0
+    }
+    
+    @IBAction func operate(_ sender: UIButton){
+        if let num = temporaryValue{
+            lblNumber.text! = numberFormatter(number: (num + presentNumber))
+        }
+
         
     }
 }

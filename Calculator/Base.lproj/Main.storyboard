@@ -219,6 +219,9 @@
                                                         <buttonConfiguration key="configuration" style="filled" image="plus" catalog="system" cornerStyle="capsule">
                                                             <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="25" scale="large" weight="medium"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="plusOperation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VeV-kR-83g"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -261,6 +264,9 @@
                                                                     <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="25" scale="large" weight="medium"/>
                                                                     <color key="baseForegroundColor" systemColor="labelColor"/>
                                                                 </buttonConfiguration>
+                                                                <connections>
+                                                                    <action selector="operate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="qBh-Ue-HTm"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
