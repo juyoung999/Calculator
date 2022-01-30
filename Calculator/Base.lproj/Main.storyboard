@@ -87,6 +87,9 @@
                                                             <imageReference key="image" image="divide" catalog="system" symbolScale="large"/>
                                                             <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="25" scale="large" weight="medium"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="calculate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="a1s-0G-NxQ"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -133,6 +136,9 @@
                                                         <buttonConfiguration key="configuration" style="filled" image="multiply" catalog="system" cornerStyle="capsule">
                                                             <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="25" scale="large" weight="medium"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="calculate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wVf-kF-FXx"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -179,6 +185,9 @@
                                                         <buttonConfiguration key="configuration" style="filled" image="minus" catalog="system" cornerStyle="capsule">
                                                             <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="25" scale="large" weight="medium"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="calculate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ga3-f3-tvh"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -226,7 +235,7 @@
                                                             <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" configurationType="pointSize" pointSize="25" scale="large" weight="medium"/>
                                                         </buttonConfiguration>
                                                         <connections>
-                                                            <action selector="plusOperation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="VeV-kR-83g"/>
+                                                            <action selector="calculate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="daS-cT-01S"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -303,7 +312,7 @@
                         <outlet property="btnEqual" destination="f7g-Gk-kzA" id="jwu-Ty-mw1"/>
                         <outlet property="btnFive" destination="myO-ao-yr4" id="gq5-xs-ZWE"/>
                         <outlet property="btnFour" destination="GYq-Tu-51W" id="BRM-r5-B7s"/>
-                        <outlet property="btnMius" destination="Kv9-77-dss" id="5TG-Bg-fsZ"/>
+                        <outlet property="btnMinus" destination="Kv9-77-dss" id="5TG-Bg-fsZ"/>
                         <outlet property="btnMulti" destination="9An-gd-g6p" id="ear-XI-q51"/>
                         <outlet property="btnNine" destination="e5b-bh-e2s" id="IYk-Ah-h0h"/>
                         <outlet property="btnOne" destination="uLt-yW-wWd" id="l3P-tc-rPA"/>

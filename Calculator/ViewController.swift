@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     var presentNumber: Double!
     var temporaryValue: Double?
     var digit: Int!
+    var tag: Int?
     @IBOutlet var btnZero: UIButton!
     @IBOutlet var btnOne: UIButton!
     @IBOutlet var btnTwo: UIButton!
@@ -28,7 +29,7 @@ class ViewController: UIViewController {
     @IBOutlet var btnDevide: UIButton!
     @IBOutlet var btnMulti: UIButton!
     @IBOutlet var btnPlus: UIButton!
-    @IBOutlet var btnMius: UIButton!
+    @IBOutlet var btnMinus: UIButton!
     @IBOutlet var btnDot: UIButton!
     @IBOutlet var btnEqual: UIButton!
     @IBOutlet var lblNumber: UILabel!
@@ -38,7 +39,11 @@ class ViewController: UIViewController {
         overrideUserInterfaceStyle = .dark
         presentNumber = 0
         digit = 1
-        btnZero.tag = 0
+        btnPlus.tag = 0
+        btnMinus.tag = 1
+        btnMulti.tag = 2
+        btnDevide.tag = 3
+        
     }
     
     @IBAction func touchNumberButton(_ sender: UIButton){
@@ -77,7 +82,10 @@ class ViewController: UIViewController {
     }
 
     @IBAction func calculate(_ sender: UIButton){
-        
+        temporaryValue = presentNumber
+        presentNumber = 0
+        digit = 1
+        tag = sender.tag
     }
 
     @IBAction func plusOperation(_ sender: UIButton){
@@ -86,11 +94,20 @@ class ViewController: UIViewController {
     }
     
     @IBAction func operate(_ sender: UIButton){
+        var result: Double!
         if let num = temporaryValue{
-            lblNumber.text! = convertToDecimal((num + presentNumber), digit: digit)
+            print(String(num))
+            print(String(presentNumber))
+            switch tag{
+                case 0: result = num + presentNumber
+                case 1: result = num - presentNumber
+                case 2: result = num * presentNumber
+                case 3: result = num / presentNumber
+            default: result = 0
+            }
+            lblNumber.text! = convertToDecimal(result, digit: digit)
+            presentNumber = result 
         }
-
-        
     }
 }
 
