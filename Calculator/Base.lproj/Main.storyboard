@@ -75,6 +75,9 @@
                                                             <fontDescription key="titleFontDescription" type="system" pointSize="35"/>
                                                             <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="applyPercentage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="11n-a4-Vyb"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v7D-Wj-pwK">
                                                         <rect key="frame" x="294" y="0.0" width="88" height="87.5"/>

@@ -9,8 +9,9 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    var presentNumber: Int!
-    var temporaryValue: Int?
+    var presentNumber: Double!
+    var temporaryValue: Double?
+    var digit: Int!
     @IBOutlet var btnZero: UIButton!
     @IBOutlet var btnOne: UIButton!
     @IBOutlet var btnTwo: UIButton!
@@ -36,21 +37,24 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         overrideUserInterfaceStyle = .dark
         presentNumber = 0
+        digit = 1
         btnZero.tag = 0
     }
     
     @IBAction func touchNumberButton(_ sender: UIButton){
         if presentNumber >= 0{
-            presentNumber = presentNumber * 10 + Int((sender.titleLabel?.text)!)!
+            presentNumber = presentNumber * 10 + Double((sender.titleLabel?.text)!)!
         }else{
-            presentNumber = presentNumber * 10 - Int((sender.titleLabel?.text)!)!
+            presentNumber = presentNumber * 10 - Double((sender.titleLabel?.text)!)!
         }
-        lblNumber.text! = convertToDecimal(number: presentNumber)
+        digit += 1
+        lblNumber.text! = convertToDecimal(presentNumber, digit: digit)
     }
     
-    func convertToDecimal(number: Int) -> String{
+    func convertToDecimal(_ number: Double, digit: Int) -> String{
         let numberFormat = NumberFormatter()
         numberFormat.numberStyle = .decimal
+        numberFormat.maximumSignificantDigits = digit
         
         return numberFormat.string(from: NSNumber(value: number))!
     }
@@ -58,11 +62,18 @@ class ViewController: UIViewController {
     @IBAction func touchCancelButton(_ sender: UIButton){
         lblNumber.text = "0"
         presentNumber = 0
+        digit = 1
     }
     
     @IBAction func touchPlmaButton(_ sender: UIButton){
         presentNumber = -presentNumber
-        lblNumber.text! = convertToDecimal(number: presentNumber)
+        lblNumber.text! = convertToDecimal(presentNumber, digit: digit)
+    }
+    
+    @IBAction func applyPercentage(_ sender: UIButton){
+        digit += 2
+        presentNumber *= 0.01
+        lblNumber.text! = convertToDecimal(presentNumber, digit: digit)
     }
 
     @IBAction func calculate(_ sender: UIButton){
@@ -76,7 +87,7 @@ class ViewController: UIViewController {
     
     @IBAction func operate(_ sender: UIButton){
         if let num = temporaryValue{
-            lblNumber.text! = convertToDecimal(number: (num + presentNumber))
+            lblNumber.text! = convertToDecimal((num + presentNumber), digit: digit)
         }
 
         
