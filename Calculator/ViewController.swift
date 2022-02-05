@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     var presentNumber: Double!
     var temporaryValue: Double?
     var digit: Int!
-    var tag: Int?
+    var calculatorTag: Int?
     @IBOutlet var btnZero: UIButton!
     @IBOutlet var btnOne: UIButton!
     @IBOutlet var btnTwo: UIButton!
@@ -85,20 +85,16 @@ class ViewController: UIViewController {
         temporaryValue = presentNumber
         presentNumber = 0
         digit = 1
-        tag = sender.tag
+        calculatorTag = sender.tag
+       // sender.isHighlighted = true
+        sender.isSelected = true
     }
 
-    @IBAction func plusOperation(_ sender: UIButton){
-        temporaryValue = presentNumber
-        presentNumber = 0
-    }
     
     @IBAction func operate(_ sender: UIButton){
         var result: Double!
         if let num = temporaryValue{
-            print(String(num))
-            print(String(presentNumber))
-            switch tag{
+            switch calculatorTag{
                 case 0: result = num + presentNumber
                 case 1: result = num - presentNumber
                 case 2: result = num * presentNumber
